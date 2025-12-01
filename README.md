@@ -9,14 +9,22 @@ Day 1 Solution: [Click here](https://github.com/GerwinT03/aoc-2025/blob/master/s
 ## Setup
 
 ```bash
-pnpm install
+bun install
 ```
 
 ## Running Solutions
 
 ```bash
-pnpm run day 1              # Run day 1 with puzzle input
-pnpm run day 1 --example    # Run day 1 with example input
+bun run day 1              # Run day 1
+bun run day 1 --example    # Run with example input
+bun run day 1-5            # Run days 1 through 5
+bun run day 1,3,5          # Run specific days
+```
+
+## Generating New Days
+
+```bash
+bun run generate 2         # Creates src/day02/ with template files
 ```
 
 ## Project Structure
@@ -27,10 +35,11 @@ src/
 │   ├── index.ts      # Solution
 │   ├── input.txt     # Puzzle input
 │   └── example.txt   # Example input
-├── day02/
-│   └── ...
-└── utils/
-    └── input.ts      # Input reading utilities
+├── utils/
+│   ├── input.ts      # Input reading utilities
+│   └── runner.ts     # Solution runner with timing
+├── run.ts            # CLI for running solutions
+└── generate.ts       # CLI for scaffolding new days
 ```
 
 ## Utilities
