@@ -1,55 +1,33 @@
-# Advent of Code 2025
+# Advent of Code
 
-TypeScript solutions for [Advent of Code 2025](https://adventofcode.com/2025).
-
-## Solutions
-Day 1 Solution: [Click here](https://github.com/GerwinT03/aoc-2025/blob/master/src/day01/index.ts) <br>
-
-
-## Setup
-
-```bash
-bun install
-```
-
-## Running Solutions
-
-```bash
-bun run day 1              # Run day 1
-bun run day 1 --example    # Run with example input
-bun run day 1-5            # Run days 1 through 5
-bun run day 1,3,5          # Run specific days
-```
-
-## Generating New Days
-
-```bash
-bun run generate 2         # Creates src/day02/ with template files
-```
+TypeScript solutions for [Advent of Code](https://adventofcode.com/) with a Next.js website to showcase them.
 
 ## Project Structure
 
 ```
-src/
-├── day01/
-│   ├── index.ts      # Solution
-│   ├── input.txt     # Puzzle input
-│   └── example.txt   # Example input
-├── utils/
-│   ├── input.ts      # Input reading utilities
-│   └── runner.ts     # Solution runner with timing
-├── run.ts            # CLI for running solutions
-└── generate.ts       # CLI for scaffolding new days
+├── 2025/              # Solutions for 2025
+│   └── src/
+│       └── day01/
+├── web/               # Next.js website
+└── README.md
 ```
 
-## Utilities
+## Years
 
-Available in `src/utils/input.ts`:
+- **[2025](./2025/)** - Current year
 
-- `readInput(day)` - Read raw input as string
-- `readLines(day)` - Read input as array of lines
-- `readNumbers(day)` - Read input as array of numbers
-- `readBlocks(day)` - Read input split by blank lines
-- `readGrid(day)` - Read input as 2D character grid
+## Website
 
-The `--example` flag automatically switches to `example.txt` input.
+The `web/` folder contains a Next.js website that displays all solutions with syntax highlighting.
+
+```bash
+cd web
+bun install
+bun dev
+```
+
+Visit `http://localhost:3000` to view the solutions.
+
+## Running Solutions
+
+See the README in each year's folder for instructions on running solutions.
