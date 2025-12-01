@@ -1,9 +1,9 @@
 import { readLines } from "../utils/input.js";
 import { runDay } from "../utils/runner.js";
 
-const input = readLines(1);
+export const input = readLines(1);
 
-function part1(lines: string[]): number {
+export function part1(lines: string[]): number {
   let rotation = 50;
   let count = 0;
   lines.forEach((line) => {
@@ -14,7 +14,7 @@ function part1(lines: string[]): number {
   return count;
 }
 
-function part2(lines: string[]): number {
+export function part2(lines: string[]): number {
   let rotation = 50;
   let count = 0;
   lines.forEach((line) => {

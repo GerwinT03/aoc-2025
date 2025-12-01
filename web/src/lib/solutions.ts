@@ -2,9 +2,25 @@ import fs from "fs";
 import path from "path";
 import { getYearConfig, defaultYear, YearConfig } from "./config";
 
+export interface PerformanceStats {
+  mean: number;
+  min: number;
+  max: number;
+  median: number;
+  runs: number;
+}
+
+export interface PerformanceData {
+  part1: PerformanceStats;
+  part2?: PerformanceStats;
+  benchmarkedAt: string;
+  runtime: string;
+}
+
 export interface DayMetadata {
   title: string;
   stars?: number;
+  performance?: PerformanceData;
 }
 
 export interface DaySolution {
@@ -14,6 +30,7 @@ export interface DaySolution {
   completed: boolean;
   stars: number; // 0, 1, or 2
   metadata: DayMetadata | null;
+  performance: PerformanceData | null;
 }
 
 function readMetadata(metaPath: string): DayMetadata | null {
@@ -75,6 +92,7 @@ export function getSolutions(year: number = defaultYear): DaySolution[] {
       completed,
       stars,
       metadata,
+      performance: metadata?.performance ?? null,
     });
   }
 

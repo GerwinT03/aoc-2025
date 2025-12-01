@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { CodeBlock } from "@/components/CodeBlock";
+import { PerformanceSection } from "@/components/PerformanceMetrics";
 import { getSolution, getSolutions } from "@/lib/solutions";
 import { ArrowLeft, ArrowRight, Star, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -127,6 +128,13 @@ export default async function DayPage({ params }: PageProps) {
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
+
+        {/* Performance Section */}
+        {solution.performance && (
+          <div className="mb-8">
+            <PerformanceSection performance={solution.performance} />
+          </div>
+        )}
 
         {/* Code Section */}
         <div className="mb-8">

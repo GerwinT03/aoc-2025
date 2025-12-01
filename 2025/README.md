@@ -23,6 +23,23 @@ bun run day 1,3,5          # Run specific days
 bun run generate 2         # Creates src/day02/ with template files
 ```
 
+### Benchmarking Solutions 
+
+The 2025 solutions include automatic performance benchmarking:
+
+```bash
+
+bun run benchmark 1 # Benchmark a single day
+bun run benchmark all # Benchmark all completed days
+```
+
+The benchmark runs:
+- 10 warmup iterations (discarded to account for JIT compilation)
+- 100 measurement iterations
+- Records mean, min, max, and median execution times
+- Saves results to each day's `meta.json`
+
+
 ## Project Structure
 
 ```
@@ -36,7 +53,8 @@ src/
 │   ├── input.ts      # Input reading utilities
 │   └── runner.ts     # Solution runner with timing
 ├── run.ts            # CLI for running solutions
-└── generate.ts       # CLI for scaffolding new days
+├── generate.ts       # CLI for scaffolding new days
+└── benchmark.ts      # CLI for benchmarking solutions
 ```
 
 ## Utilities

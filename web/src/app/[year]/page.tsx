@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { DayCard } from "@/components/DayCard";
 import { getSolutions } from "@/lib/solutions";
 import { getYearConfig, getAvailableYears } from "@/lib/config";
-import { Calendar } from "lucide-react";
+import { Calendar, Zap } from "lucide-react";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -41,6 +41,19 @@ export default async function YearPage({ params }: PageProps) {
   const solutions = getSolutions(year);
   const totalStars = solutions.reduce((sum, s) => sum + s.stars, 0);
   const completedDays = solutions.filter((s) => s.completed).length;
+  
+  // Calculate total performance time
+  const totalPerformanceMs = solutions.reduce((sum, s) => {
+    if (!s.performance) return sum;
+    return sum + s.performance.part1.mean + (s.performance.part2?.mean ?? 0);
+  }, 0);
+  const hasPerformanceData = solutions.some((s) => s.performance);
+  
+  function formatTime(ms: number): string {
+    if (ms < 1) return `${(ms * 1000).toFixed(1)}µs`;
+    if (ms < 1000) return `${ms.toFixed(2)}ms`;
+    return `${(ms / 1000).toFixed(2)}s`;
+  }
 
   return (
     <div className="min-h-screen">
@@ -92,7 +105,7 @@ export default async function YearPage({ params }: PageProps) {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className={`mt-12 grid grid-cols-1 gap-4 ${hasPerformanceData ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
           <div className="bg-aoc-darker border border-gray-800 rounded-lg p-6 text-center">
             <div className="text-4xl font-bold text-aoc-gold mb-2">
               {totalStars}
@@ -111,6 +124,15 @@ export default async function YearPage({ params }: PageProps) {
             </div>
             <div className="text-sm text-gray-400">Days Remaining</div>
           </div>
+          {hasPerformanceData && (
+            <div className="bg-aoc-darker border border-gray-800 rounded-lg p-6 text-center">
+              <div className="flex items-center justify-center gap-2 text-4xl font-bold text-purple-400 mb-2">
+                <Zap className="w-8 h-8" />
+                {formatTime(totalPerformanceMs)}
+              </div>
+              <div className="text-sm text-gray-400">Total Runtime</div>
+            </div>
+          )}
         </div>
       </main>
 

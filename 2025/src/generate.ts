@@ -28,13 +28,13 @@ if (existsSync(dayPath)) {
 const template = `import { readLines } from "../utils/input.js";
 import { runDay } from "../utils/runner.js";
 
-const input = readLines(${day});
+export const input = readLines(${day});
 
-function part1(lines: string[]): number {
+export function part1(lines: string[]): number {
   return 0;
 }
 
-function part2(lines: string[]): number {
+export function part2(lines: string[]): number {
   return 0;
 }
 
