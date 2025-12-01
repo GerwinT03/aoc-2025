@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+
+# Puzzle inputs (per AoC rules)
+**/input.txt
+**/example.txt

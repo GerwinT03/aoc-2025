@@ -54,7 +54,7 @@ export default async function YearPage({ params }: PageProps) {
             <span className="text-aoc-green">Advent of Code {year}</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
-            Solutions written in TypeScript. <br /> Click on any completed day to view
+            Solutions written in {yearConfig.language === "csharp" ? "C#" : "TypeScript"}. <br /> Click on any completed day to view
             the code.
           </p>
           <div className="flex items-center justify-center gap-6 text-sm">

@@ -8,6 +8,8 @@ TypeScript solutions for [Advent of Code](https://adventofcode.com/) with a Next
 ├── 2025/              # Solutions for 2025
 │   └── src/
 │       └── day01/
+├── 2024/              # Solutions for 2024
+│   └── ...
 ├── web/               # Next.js website
 └── README.md
 ```
@@ -15,6 +17,7 @@ TypeScript solutions for [Advent of Code](https://adventofcode.com/) with a Next
 ## Years
 
 - **[2025](./2025/)** - Current year
+- **[2024](./2024/)**
 
 ## Website
 

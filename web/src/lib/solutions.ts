@@ -25,6 +25,25 @@ function readMetadata(metaPath: string): DayMetadata | null {
   }
 }
 
+function getCodePath(srcDir: string, day: number, yearConfig: { year: number; filePattern: "ts" | "csharp" }): { codePath: string; metaPath: string } {
+  const dayStr = day.toString().padStart(2, "0");
+  
+  if (yearConfig.filePattern === "csharp") {
+    const dayDir = path.join(srcDir, `AoC${yearConfig.year}.Day${dayStr}`);
+    return {
+      codePath: path.join(dayDir, "Program.cs"),
+      metaPath: path.join(dayDir, "meta.json"),
+    };
+  }
+  
+  // Default TypeScript pattern
+  const dayDir = path.join(srcDir, `day${dayStr}`);
+  return {
+    codePath: path.join(dayDir, "index.ts"),
+    metaPath: path.join(dayDir, "meta.json"),
+  };
+}
+
 export function getSolutions(year: number = defaultYear): DaySolution[] {
   const yearConfig = getYearConfig(year);
   if (!yearConfig) {
@@ -35,18 +54,15 @@ export function getSolutions(year: number = defaultYear): DaySolution[] {
   const srcDir = path.join(process.cwd(), yearConfig.srcPath);
 
   for (let day = 1; day <= yearConfig.totalDays; day++) {
-    const dayStr = day.toString().padStart(2, "0");
-    const dayDir = path.join(srcDir, `day${dayStr}`);
-    const indexPath = path.join(dayDir, "index.ts");
-    const metaPath = path.join(dayDir, "meta.json");
+    const { codePath, metaPath } = getCodePath(srcDir, day, yearConfig);
 
     let code = "";
     let completed = false;
     let stars = 0;
     let metadata: DayMetadata | null = null;
 
-    if (fs.existsSync(indexPath)) {
-      code = fs.readFileSync(indexPath, "utf-8");
+    if (fs.existsSync(codePath)) {
+      code = fs.readFileSync(codePath, "utf-8");
       completed = true;
       metadata = readMetadata(metaPath);
       stars = metadata?.stars ?? 0;

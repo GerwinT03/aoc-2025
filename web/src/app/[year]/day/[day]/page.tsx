@@ -131,7 +131,7 @@ export default async function DayPage({ params }: PageProps) {
         {/* Code Section */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-white mb-4">Solution</h2>
-          <CodeBlock code={solution.code} language="typescript" />
+          <CodeBlock code={solution.code} language={yearConfig.language === "csharp" ? "csharp" : "typescript"} />
         </div>
 
         {/* Bottom Navigation */}

@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
-import { Highlight, themes } from "prism-react-renderer";
+import { Highlight, themes, Prism, type Language } from "prism-react-renderer";
+import Prismjs from "prismjs";
+import "prismjs/components/prism-csharp";
+
+// Register C# language with prism-react-renderer's Prism instance
+if (typeof Prismjs.languages.csharp !== "undefined") {
+  Prism.languages.csharp = Prismjs.languages.csharp;
+}
+
+type ExtendedLanguage = Language | "csharp";
 
 interface CodeBlockProps {
   code: string;
-  language?: string;
+  language?: ExtendedLanguage;
 }
 
 export function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
@@ -39,7 +48,7 @@ export function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
           )}
         </button>
       </div>
-      <Highlight theme={themes.nightOwl} code={code.trim()} language="tsx">
+      <Highlight theme={themes.nightOwl} code={code.trim()} language={language as Language}>
         {({ tokens, getLineProps, getTokenProps }) => (
           <div className="flex">
             <div className="flex-shrink-0 py-4 px-3 text-right text-gray-600 select-none border-r border-gray-800 bg-gray-900/30">

@@ -3,6 +3,8 @@ export interface YearConfig {
   totalDays: number;
   maxStars: number;
   srcPath: string; // relative path from web folder to src folder
+  language: "typescript" | "csharp";
+  filePattern: "ts" | "csharp";
 }
 
 export const years: YearConfig[] = [
@@ -11,6 +13,16 @@ export const years: YearConfig[] = [
     totalDays: 12,
     maxStars: 24,
     srcPath: "../2025/src",
+    language: "typescript",
+    filePattern: "ts",
+  },
+  {
+    year: 2024,
+    totalDays: 25,
+    maxStars: 50,
+    srcPath: "../2024",
+    language: "csharp",
+    filePattern: "csharp",
   },
 ];
 
