@@ -6,6 +6,7 @@
   "scripts": {
     "build": "bun run tsc",
     "day": "bun run src/run.ts",
+    "generate": "bun run src/generate.ts",
     "test": "bun test"
   },
   "devDependencies": {
