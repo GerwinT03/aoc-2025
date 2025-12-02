@@ -23,16 +23,16 @@ function formatTime(ms: number): string {
 
 function getPerformanceColor(ms: number): string {
   if (ms < 1) return "text-green-400";
-  if (ms < 10) return "text-lime-400";
-  if (ms < 100) return "text-yellow-400";
+  if (ms < 50) return "text-lime-400";
+  if (ms < 200) return "text-yellow-400";
   if (ms < 1000) return "text-orange-400";
   return "text-red-400";
 }
 
 function getPerformanceBgColor(ms: number): string {
   if (ms < 1) return "bg-green-400";
-  if (ms < 10) return "bg-lime-400";
-  if (ms < 100) return "bg-yellow-400";
+  if (ms < 50) return "bg-lime-400";
+  if (ms < 200) return "bg-yellow-400";
   if (ms < 1000) return "bg-orange-400";
   return "bg-red-400";
 }
