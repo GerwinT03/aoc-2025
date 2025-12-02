@@ -30,6 +30,13 @@ export function readLines(day: number, filename?: string): string[] {
 }
 
 /**
+ * Reads input and splits by comma
+ */
+export function readComma(day: number, filename?: string): string[] {
+  return readInput(day, filename).split(",");
+}
+
+/**
  * Reads input and parses each line as a number
  */
 export function readNumbers(day: number, filename?: string): number[] {
