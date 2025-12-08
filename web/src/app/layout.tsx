@@ -13,6 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <script
+        defer
+        src="https://unami.gerwint.live/script.js"
+        data-website-id="4bc5a865-6b82-46f5-bb4e-c68eaa4d575e"
+      ></script>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
