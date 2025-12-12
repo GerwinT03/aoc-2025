@@ -3,20 +3,20 @@
   "stars": 2,
   "performance": {
     "part1": {
-      "mean": 245.2338,
-      "min": 239.411,
-      "max": 265.5017,
-      "median": 245.4354,
+      "mean": 245.232,
+      "min": 241.5476,
+      "max": 262.8894,
+      "median": 245.4381,
       "runs": 100
     },
     "part2": {
-      "mean": 445.6794,
-      "min": 437.753,
-      "max": 466.5677,
-      "median": 444.9936,
+      "mean": 473.0762,
+      "min": 462.0232,
+      "max": 481.951,
+      "median": 474.0214,
       "runs": 100
     },
-    "benchmarkedAt": "2025-12-02T09:52:03.971Z",
-    "runtime": "bun 1.3.3"
+    "benchmarkedAt": "2025-12-12T10:00:40.141Z",
+    "runtime": "bun 1.3.4"
   }
 }
